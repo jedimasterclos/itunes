@@ -1,0 +1,17 @@
+<h2>My Favorites<h2>
+<hr>
+
+<% @favs.each do |f| %>
+  <div>
+    <p>
+      <a class="btn btn-info" href="<%= f.preview_url %>" target="__blank"><%= f.title %></a> 
+      <p>by <%= f.artist %> (for $<%= f.cost %>)</p>
+      <%= link_to "Remove From Favorites", favorites_path(:id => f.id), method: :delete, class: "btn-sm btn-danger" %>
+    </p>
+  </div>
+  <hr>
+<% end %>
+
+
+<%= link_to "Home", "/", class: 'btn btn-success' %>
+
